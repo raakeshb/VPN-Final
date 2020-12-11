@@ -1,0 +1,16 @@
+hostname ACME
+interface Tunnel0
+ ip address 172.16.1.2 255.255.255.0
+ keepalive 5 
+ tunnel source 200.1.1.101
+ tunnel destination 200.1.1.30
+ no shut
+!
+interface GigabitEthernet0/0
+ ip address 200.1.1.101 255.255.255.0
+ no shut
+interface GigabitEthernet0/1
+ ip address 192.168.100.2 255.255.255.0
+ no shut
+
+ip route 192.168.30.0 255.255.255.0 172.16.1.1
